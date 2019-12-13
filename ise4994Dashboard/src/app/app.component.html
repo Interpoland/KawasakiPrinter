@@ -1,0 +1,54 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+<!DOCTYPE HTML>
+<html>
+
+<header>
+	<div class = "container">
+		<a href="#" class = logo> SMART Lab Dashboard</a>
+		<nav>
+			<ul>
+				<li><a href="#" routerLink = "/">Home</a></li>
+				<li><a href="#" routerLink = "/list">Printers</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<body> 
+
+
+<div class="gridContainer">
+  <div class="menuBar">menuBar</div>
+  <div class="graph1">graph1</div>
+  <div class="graph2">
+  	
+   <p *ngFor="let dat of data; let i = index">
+   	{{data.data}} at {{i}}
+   </p>
+
+  </div>
+  <div class="graph3">graph3</div>
+  <div class="graph4">graph4</div>
+</div>
+
+
+<router-outlet></router-outlet>
+
+</body>
+</html>
+
+
+
+
+
+
