@@ -13,19 +13,19 @@ export class AppComponent {
  	allData:[
  		{
  			time: new Date(),
- 			value: 5
+ 			xPosData: 5
  		},
  		{
  			time: new Date(),
- 			value: 6
+ 			xPosData: 6
  		},
  		{
  			time: new Date(),
- 			value: 7
+ 			xPosData: 7
  		},
  		{
  			time: new Date(),
- 			value: 8
+ 			xPosData: 8
  		},
  	]
  }

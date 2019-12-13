@@ -26,6 +26,23 @@
 
 <body> 
 
+<!-- Script to create a reactive table. -->
+
+<script type="text/javascript">
+  var table = " "; /* Initializing table. */
+  columns = allData.length;
+  rows = 2
+  for (var row = 0; row < rows; row++){
+    table += "<tr>";
+    for (var row = 0; row < rows; row++){
+      table += "<td>";
+      table += "</td>";
+    }
+    table += "</tr>";
+  }
+  document.write('<table border = 1>' table '</table>')
+</script>
+
 <!-- Adding grid areas to website. -->
 
 <div class="gridContainer">
@@ -33,12 +50,16 @@
   
   <div class="graph1">Although those around him can and do act upon their thoughts, Hamlet is stifled by his consuming insecurities. From the moment Hamlet confronts the spirit of his father, and consistently throughout the play from that point on, what he is sure of in one scene he doubts in the next. Hamlet knows that it is the spirit of his father on the castle wall, and he understands fully its unmistakable cry for revenge. But, when he is alone, Hamlet rejects what he has witnessed in a maelstrom of doubt and fear:</div>
 
-  <!-- Adding data via chart. -->
+  <!-- Adding data into table. -->
   <div class="graph2">
-  	
-   <p *ngFor="let dat of data; let i = index">
-   	{{data.data}} at {{i}}
-   </p>
+
+   <table>
+     <p *ngFor="let data of allData; let i = index">
+     	{{data.time}} at {{i}}
+      {{data.xPosValue}} at {{i}}
+
+     </p>
+   </table>
 
   </div>
 
