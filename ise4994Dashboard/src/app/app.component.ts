@@ -8,24 +8,24 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent {
- data = {
+ allData = {
  	tagName:"xPostion",
- 	data:[
+ 	allData:[
  		{
- 			time:new Date(),
- 			value:5
+ 			time: new Date(),
+ 			value: 5
  		},
  		{
- 			time:new Date(),
- 			value:6
+ 			time: new Date(),
+ 			value: 6
  		},
  		{
- 			time:new Date(),
- 			value:7
+ 			time: new Date(),
+ 			value: 7
  		},
  		{
- 			time:new Date(),
- 			value:8
+ 			time: new Date(),
+ 			value: 8
  		},
  	]
  }
