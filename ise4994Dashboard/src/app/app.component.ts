@@ -9,25 +9,30 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
  allData = {
- 	tagName:"xPostion",
- 	allData:[
+ 	tagNames: ["xData", "yData", "zData"],
+ 	generalData:[
  		{
  			time: new Date(),
- 			xPosData: 5
+ 			xData: 5
  		},
  		{
  			time: new Date(),
- 			xPosData: 6
+ 			zData: 6
  		},
  		{
  			time: new Date(),
- 			xPosData: 7
+ 			xData: 7,
+         zData: 8
  		},
  		{
  			time: new Date(),
- 			xPosData: 8
- 		},
+ 			yData: 8
+ 		}
  	]
  }
   title = 'ise4994Dashboard';
+
+  constructor() { }
+
+
 }

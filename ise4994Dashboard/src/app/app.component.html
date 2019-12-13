@@ -26,23 +26,6 @@
 
 <body> 
 
-<!-- Script to create a reactive table. -->
-
-<script type="text/javascript">
-  var table = " "; /* Initializing table. */
-  columns = allData.length;
-  rows = 2
-  for (var row = 0; row < rows; row++){
-    table += "<tr>";
-    for (var row = 0; row < rows; row++){
-      table += "<td>";
-      table += "</td>";
-    }
-    table += "</tr>";
-  }
-  document.write('<table border = 1>' table '</table>')
-</script>
-
 <!-- Adding grid areas to website. -->
 
 <div class="gridContainer">
@@ -53,12 +36,19 @@
   <!-- Adding data into table. -->
   <div class="graph2">
 
-   <table>
-     <p *ngFor="let data of allData; let i = index">
-     	{{data.time}} at {{i}}
-      {{data.xPosValue}} at {{i}}
+   <table border = 1>
 
-     </p>
+    <tr>
+      <app-table-header [tagNames] = allData.tagNames></app-table-header>
+    </tr>
+
+    <tr *ngFor = "let dataPoint of allData.generalData">
+
+      <app-table-row-data [dataPoint]=dataPoint [tagNames]=allData.tagNames > </app-table-row-data>
+    </tr>
+
+
+
    </table>
 
   </div>
@@ -70,7 +60,6 @@
 
 
 <router-outlet></router-outlet>
-
 </body>
 </html>
 
