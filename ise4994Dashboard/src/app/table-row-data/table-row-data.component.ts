@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {AppComponent} from "../app/app.component"
+/* import {AppComponent} from "../app/app.component" */
 
 @Component({
   selector: 'app-table-row-data',
