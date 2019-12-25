@@ -25,7 +25,7 @@ export class TableRowDataComponent implements OnInit {
   			this.data.push("-")
   		}
   	}
-  	console.log(this.data)	
+  	console.log(this.data)
   }
 
 }

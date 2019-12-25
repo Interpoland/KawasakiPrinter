@@ -43,13 +43,15 @@
     </tr>
 
     <tr *ngFor = "let dataPoint of allData.generalData">
-
       <app-table-row-data [dataPoint]=dataPoint [tagNames]=allData.tagNames > </app-table-row-data>
     </tr>
-
-
-
    </table>
+
+   <tr>
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <canvas id = "canvas"> {{chart}} </canvas>
+   </tr>
+
 
   </div>
 
