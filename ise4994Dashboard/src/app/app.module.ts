@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { GraphComponent } from './graph/graph.component';
 import { TableRowDataComponent } from './table-row-data/table-row-data.component';
 import { TableHeaderComponent } from './table-header/table-header.component';
+import { StaticLineGraphComponent } from './static-line-graph/static-line-graph.component';
+import { DynamicLineGraphComponent } from './dynamic-line-graph/dynamic-line-graph.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GraphComponent,
     TableRowDataComponent,
-    TableHeaderComponent
+    TableHeaderComponent,
+    StaticLineGraphComponent,
+    DynamicLineGraphComponent
   ],
   imports: [
     BrowserModule,
