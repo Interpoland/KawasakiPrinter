@@ -12,7 +12,7 @@ export class GraphComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    let barGraph = new CanvasJS.Chart("chartContainer", {
+    let barGraph = new CanvasJS.Chart("chartContainerBarGraph", {
       animationEnabled: true,
       exportEnabled: true,
       title: {

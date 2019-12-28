@@ -18,7 +18,7 @@ export class DynamicLineGraphComponent implements OnInit {
       y += Math.round(5 + Math.random() * (-5 - 5));
       lineDataPoints.push({ y: y });
     }
-    let dynamicLineGraph = new CanvasJS.Chart("chartContainer", {
+    let dynamicLineGraph = new CanvasJS.Chart("chartContainerDynamicLine", {
       zoomEnabled: true,
       animationEnabled: true,
       exportEnabled: true,
