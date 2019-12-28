@@ -9,11 +9,8 @@ import * as CanvasJS from './canvasjs.min';
 })
 export class GraphComponent implements OnInit {
 
-     constructor() { }
-     @Input() dataPoint;
-
      ngOnInit() {
-		let chart = new CanvasJS.Chart("chartContainer", {
+		let barGraph = new CanvasJS.Chart("chartContainer", {
 		animationEnabled: true,
 		exportEnabled: true,
 		title: {
@@ -30,6 +27,6 @@ export class GraphComponent implements OnInit {
 		}]
 	});
 
-	chart.render();
+	barGraph.render();
     }
 }

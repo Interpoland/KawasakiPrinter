@@ -13,12 +13,12 @@
 <html>
 
 <header>
-	<div class = "container">
-		<a href="#" class = logo> SMART Lab Printer Status</a>
+	<div class="container">
+		<a href="#" class=logo> SMART Lab Printer Status</a>
 		<nav>
 			<ul>
-				<li><a href="#" routerLink = "/">Home</a></li>
-				<li><a href="#" routerLink = "/list">Printers</a></li>
+				<li><a href="#" routerLink="/">Home</a></li>
+				<li><a href="#" routerLink="/list">Printers</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -26,41 +26,45 @@
 
 <body>
 
-<!-- Adding grid areas to website. -->
+	<!-- Adding grid areas to website. -->
 
-<div class="gridContainer">
-  <div class="menuBar">menuBar</div>
+	<div class="gridContainer">
+		<div class="menuBar">menuBar</div>
 
-  <div class="graph1">Although those around him can and do act upon their thoughts, Hamlet is stifled by his consuming insecurities. From the moment Hamlet confronts the spirit of his father, and consistently throughout the play from that point on, what he is sure of in one scene he doubts in the next. Hamlet knows that it is the spirit of his father on the castle wall, and he understands fully its unmistakable cry for revenge. But, when he is alone, Hamlet rejects what he has witnessed in a maelstrom of doubt and fear:</div>
+		<div class="graph1">Although those around him can and do act upon their thoughts, Hamlet is stifled by his consuming insecurities. From the moment Hamlet confronts the spirit of his father, and consistently throughout the play from that point on,
+			what he is sure of in one scene he doubts in the next. Hamlet knows that it is the spirit of his father on the castle wall, and he understands fully its unmistakable cry for revenge. But, when he is alone, Hamlet rejects what he has witnessed
+			in a maelstrom of doubt and fear:</div>
 
-  <!-- Adding data into table. -->
-  <div class="graph2">
+		<!-- Adding data into table. -->
+		<div class="graph2">
 
-   <table border = 1>
+			<table border=1>
+				<tr>
+					<app-table-header [tagNames]=allData.tagNames></app-table-header>
+				</tr>
 
-    <tr>
-      <app-table-header [tagNames] = allData.tagNames></app-table-header>
-    </tr>
+				<tr *ngFor="let dataPoint of allData.generalData">
+					<app-table-row-data [dataPoint]=dataPoint [tagNames]=allData.tagNames> </app-table-row-data>
+				</tr>
+			</table>
 
-    <tr *ngFor = "let dataPoint of allData.generalData">
-      <app-table-row-data [dataPoint]=dataPoint [tagNames]=allData.tagNames > </app-table-row-data>
-    </tr>
-   </table>
-
-   <tr>
-    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-    <canvas id = "canvas"> {{barGraph}} </canvas>
-   </tr>
-
-
-  </div>
-
-  <div class="graph3">The emphasis on ambiguity in the play, and the absence of overt instruction on how to overcome such ambiguity is Shakespeare's testament to real life. Each one of us has experienced Hamlet's struggle to find the truth in a mire of delusion and uncertainty, often to no avail. As Kenneth Muir points out in Shakespeare and the Tragic Pattern:</div>
-
-  <div class="graph4">graph4</div>
-</div>
+			<tr>
+				<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+				<canvas id="canvas1"> {{barGraph}} </canvas>
+				<canvas id="canvas2"> {{dynamicLineGraph}} </canvas>
+			</tr>
 
 
-<router-outlet></router-outlet>
+		</div>
+
+		<div class="graph3">The emphasis on ambiguity in the play, and the absence of overt instruction on how to overcome such ambiguity is Shakespeare's testament to real life. Each one of us has experienced Hamlet's struggle to find the truth in a
+			mire of delusion and uncertainty, often to no avail. As Kenneth Muir points out in Shakespeare and the Tragic Pattern:</div>
+
+		<div class="graph4">graph4</div>
+	</div>
+
+
+	<router-outlet></router-outlet>
 </body>
+
 </html>
