@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as CanvasJS from './canvasjs.min';
 //var CanvasJS = require('./canvasjs.min');
 
@@ -9,24 +9,26 @@ import * as CanvasJS from './canvasjs.min';
 })
 export class GraphComponent implements OnInit {
 
-     ngOnInit() {
-		let barGraph = new CanvasJS.Chart("chartContainer", {
-		animationEnabled: true,
-		exportEnabled: true,
-		title: {
-			text: "Example Printer Status Chart"
-		},
-		data: [{
-			type: "column",
-			dataPoints: [
-				{ y: 71, label: "Hyrel" },
-				{ y: 55, label: "MP1" },
-				{ y: 50, label: "MP2" },
-				{ y: 65, label: "MP3" }
-			]
-		}]
-	});
+  constructor() { }
 
-	barGraph.render();
-    }
+  ngOnInit() {
+    let barGraph = new CanvasJS.Chart("chartContainer", {
+      animationEnabled: true,
+      exportEnabled: true,
+      title: {
+        text: "Example Printer Status Chart"
+      },
+      data: [{
+        type: "column",
+        dataPoints: [
+          { y: 71, label: "Hyrel" },
+          { y: 55, label: "MP1" },
+          { y: 50, label: "MP2" },
+          { y: 65, label: "MP3" }
+        ]
+      }]
+    });
+
+    barGraph.render();
+  }
 }
