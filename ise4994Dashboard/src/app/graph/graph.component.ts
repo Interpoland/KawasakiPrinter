@@ -16,15 +16,14 @@ export class GraphComponent implements OnInit {
       animationEnabled: true,
       exportEnabled: true,
       title: {
-        text: "Example Printer Status Chart"
+        text: "Temperature Printer Status Chart"
       },
       data: [{
         type: "column",
         dataPoints: [
           { y: 71, label: "Hyrel" },
           { y: 55, label: "MP1" },
-          { y: 50, label: "MP2" },
-          { y: 65, label: "MP3" }
+          { y: 50, label: "MP2" }
         ]
       }]
     });

@@ -7,34 +7,35 @@ import * as CanvasJS from './canvasjs.min';
   templateUrl: './dynamic-line-graph.component.html',
   styleUrls: ['./dynamic-line-graph.component.css']
 })
+
 export class DynamicLineGraphComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
-    let lineDataPoints = [];
+    let dataPoints = [];
     let y = 0;
     for (var i = 0; i < 10000; i++) {
-      y += Math.round(5 + Math.random() * (-5 - 5));
-      lineDataPoints.push({ y: y });
+      y += Math.round(Math.random() * (-5));
+      dataPoints.push({ y: y });
     }
-    let dynamicLineGraph = new CanvasJS.Chart("chartContainerDynamicLine", {
+    let dynamicLine = new CanvasJS.Chart("chartContainerDynamicLine", {
       zoomEnabled: true,
       animationEnabled: true,
       exportEnabled: true,
       title: {
-        text: "Dynamic Line Graph Demo"
+        text: "Performance Demo - 10000 DataPoints"
       },
       subtitles: [{
-        text: "Can Zoom and Pan"
+        text: "Try Zooming and Panning"
       }],
-      dynamicLineData: [
+      data: [
         {
           type: "line",
-          lineDataPoints: lineDataPoints
+          dataPoints: dataPoints
         }]
     });
 
-    dynamicLineGraph.render();
+    dynamicLine.render();
   }
 }

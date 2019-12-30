@@ -31,9 +31,7 @@
 	<div class="gridContainer">
 		<div class="menuBar">menuBar</div>
 
-		<div class="graph1">Although those around him can and do act upon their thoughts, Hamlet is stifled by his consuming insecurities. From the moment Hamlet confronts the spirit of his father, and consistently throughout the play from that point on,
-			what he is sure of in one scene he doubts in the next. Hamlet knows that it is the spirit of his father on the castle wall, and he understands fully its unmistakable cry for revenge. But, when he is alone, Hamlet rejects what he has witnessed
-			in a maelstrom of doubt and fear:</div>
+		<div class="graph1"></div>
 
 		<!-- Adding data into table. -->
 		<div class="graph2">
@@ -48,29 +46,39 @@
 				</tr>
 			</table>
 
-			<tr>
+			<!-- Adding charts into table. -->
 
+			<div>
 				<div id="chartContainerBarGraph" style="height: 370px; width: 100%;"></div>
 				<canvas id="canvasBarGraph"> {{barGraph}} </canvas>
 
-				<div id="chartContainerDynamicLine" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
-				<canvas id="canvasDynamicLineGraph"> {{dynamicLineGraph}} </canvas>
+				<div id="chartContainerDynamicLine" style="height: 370px; width: 100%;"></div>
+				<canvas id="canvasDynamicLineGraph"> {{dynamicLine}} </canvas>
 
-			</tr>
-
-
+				<div id="chartContainerFakeBarGraph" style="height: 370px; width: 100%;"></div>
+				<canvas id="canvasFakeBarGraph"> {{fakeBarGraph}} </canvas>
+			</div>
 
 
 		</div>
 
 		<div class="graph3">The emphasis on ambiguity in the play, and the absence of overt instruction on how to overcome such ambiguity is Shakespeare's testament to real life. Each one of us has experienced Hamlet's struggle to find the truth in a
-			mire of delusion and uncertainty, often to no avail. As Kenneth Muir points out in Shakespeare and the Tragic Pattern:</div>
+			mire of delusion and uncertainty, often to no avail. As Kenneth Muir points out in Shakespeare and the Tragic Pattern:
+
+			<div>
+				<div id="chartContainerFakeBarGraph" style="height: 370px; width: 100%;"></div>
+				<canvas id="canvasBarGraph"> {{fakeBarGraph}} </canvas>
+			</div>
+
+		</div>
 
 		<div class="graph4">graph4</div>
+
 	</div>
 
 
 	<router-outlet></router-outlet>
+
 </body>
 
 </html>
