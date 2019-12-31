@@ -16,7 +16,7 @@ export class DynamicLineGraphComponent implements OnInit {
 
   ngOnInit() {
     this.dataPoints = [];
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 1000; i++) {
       this.dataPoints.push({
         x: i, y: (Math.random())
       });
@@ -26,7 +26,7 @@ export class DynamicLineGraphComponent implements OnInit {
       animationEnabled: true,
       exportEnabled: true,
       title: {
-        text: "Temperature Line Demo - 10000 DataPoints"
+        text: "Temperature Line Demo - 1000 DataPoints"
       },
       data: [
         {
