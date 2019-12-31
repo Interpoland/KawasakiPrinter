@@ -49,14 +49,11 @@
 			<!-- Adding charts into table. -->
 
 			<div>
-				<div id="chartContainerBarGraph" style="height: 370px; width: 100%;"></div>
-				<canvas id="canvasBarGraph"> {{barGraph}} </canvas>
-
-				<div id="chartContainerDynamicLine" style="height: 370px; width: 100%;"></div>
-				<canvas id="canvasDynamicLineGraph"> {{dynamicLine}} </canvas>
+				<app-graph></app-graph>
+				<app-dynamic-line-graph></app-dynamic-line-graph>
 
 				<div id="chartContainerFakeBarGraph" style="height: 370px; width: 100%;"></div>
-				<canvas id="canvasFakeBarGraph"> {{fakeBarGraph}} </canvas>
+
 			</div>
 
 
@@ -64,11 +61,6 @@
 
 		<div class="graph3">The emphasis on ambiguity in the play, and the absence of overt instruction on how to overcome such ambiguity is Shakespeare's testament to real life. Each one of us has experienced Hamlet's struggle to find the truth in a
 			mire of delusion and uncertainty, often to no avail. As Kenneth Muir points out in Shakespeare and the Tragic Pattern:
-
-			<div>
-				<div id="chartContainerFakeBarGraph" style="height: 370px; width: 100%;"></div>
-				<canvas id="canvasBarGraph"> {{fakeBarGraph}} </canvas>
-			</div>
 
 		</div>
 

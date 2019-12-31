@@ -29,5 +29,7 @@ export class GraphComponent implements OnInit {
     });
 
     barGraph.render();
+    console.log("Works")
+
   }
 }

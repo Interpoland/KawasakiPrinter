@@ -22,7 +22,7 @@ export class AppComponent {
  		{
  			time: new Date(),
  			xData: 7,
-         zData: 8
+               zData: 8
  		},
  		{
  			time: new Date(),

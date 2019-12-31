@@ -9,33 +9,32 @@ import * as CanvasJS from './canvasjs.min';
 })
 
 export class DynamicLineGraphComponent implements OnInit {
+  dynamicLine;
+  dataPoints;
 
   constructor() { }
 
   ngOnInit() {
-    let dataPoints = [];
-    let y = 0;
-    for (var i = 0; i < 10000; i++) {
-      y += Math.round(Math.random() * (-5));
-      dataPoints.push({ y: y });
+    this.dataPoints = [];
+    for (var i = 0; i < 10; i++) {
+      this.dataPoints.push({
+        x: i, y: (Math.random())
+      });
     }
-    let dynamicLine = new CanvasJS.Chart("chartContainerDynamicLine", {
+    this.dynamicLine = new CanvasJS.Chart("chartContainerDynamicLine", {
       zoomEnabled: true,
       animationEnabled: true,
       exportEnabled: true,
       title: {
-        text: "Performance Demo - 10000 DataPoints"
+        text: "Temperature Line Demo - 10000 DataPoints"
       },
-      subtitles: [{
-        text: "Try Zooming and Panning"
-      }],
       data: [
         {
           type: "line",
-          dataPoints: dataPoints
+          dataPoints: this.dataPoints
         }]
     });
 
-    dynamicLine.render();
+    this.dynamicLine.render();
   }
 }
