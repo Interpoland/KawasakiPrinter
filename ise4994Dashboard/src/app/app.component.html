@@ -12,29 +12,28 @@
 <!DOCTYPE HTML>
 <html>
 
-<header>
-	<div class="container">
-		<a href="#" class=logo> SMART Lab Printer Status</a>
-		<nav>
-			<ul>
-				<li><a href="#" routerLink="/">Home</a></li>
-				<li><a href="#" routerLink="/list">Printers</a></li>
-			</ul>
-		</nav>
-	</div>
-</header>
+<div class = "title">
+	SMART Lab Dashboard
+</div>
+
+<div class="navigationBar">
+	<a class="active" href="#home">Home</a>
+	<a href="#data">Data</a>
+	<a href="#equipment">Equipment</a>
+	<a href="#physicalAssets">Physical Assets</a>
+	<a href="#jobs">Jobs</a>
+</div>
 
 <body>
 
 	<!-- Adding grid areas to website. -->
 
 	<div class="gridContainer">
-		<div class="menuBar">menuBar</div>
 
-		<div class="graph1"></div>
+		<div class="side"></div>
 
 		<!-- Adding data into table. -->
-		<div class="graph2">
+		<div class="main">
 
 			<table border=1>
 				<tr>
@@ -51,20 +50,15 @@
 			<div>
 				<app-graph></app-graph>
 				<app-dynamic-line-graph></app-dynamic-line-graph>
-
-				<div id="chartContainerFakeBarGraph" style="height: 370px; width: 100%;"></div>
-
+				<app-static-line-graph></app-static-line-graph>
 			</div>
 
 
 		</div>
 
-		<div class="graph3">The emphasis on ambiguity in the play, and the absence of overt instruction on how to overcome such ambiguity is Shakespeare's testament to real life. Each one of us has experienced Hamlet's struggle to find the truth in a
+		<div class="footer">The emphasis on ambiguity in the play, and the absence of overt instruction on how to overcome such ambiguity is Shakespeare's testament to real life. Each one of us has experienced Hamlet's struggle to find the truth in a
 			mire of delusion and uncertainty, often to no avail. As Kenneth Muir points out in Shakespeare and the Tragic Pattern:
-
 		</div>
-
-		<div class="graph4">graph4</div>
 
 	</div>
 

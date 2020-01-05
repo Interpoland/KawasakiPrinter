@@ -1,6 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* Need to look into why grid is not extending for the entire page. */
+
+.title{
+     padding: 40px;
+     background-color: #cc5500;
+     color: white;
+     text-align: center;
+     font-size: 50px;
+     font-weight: bold;
+}
+
+/* Add a Maroon background color to the top navigation */
+.navigationBar {
+  background-color: #800000;
+  overflow: hidden;
+}
+
+/* Style the words/links inside the navigation bar */
+.navigationBar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Changing the color of links when hover */
+.navigationBar a:hover {
+  background-color: #cc5500;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.navigationBar a.active {
+  background-color: #cc5500;
+  color: white;
+}
 
 .gridContainer {
   display: grid;
@@ -8,75 +44,36 @@
   grid-template-rows: .75fr 2fr 1fr;
   /* Allowing grid container to be flexible with item size. */
   grid-auto-columns: minmax(100px, auto);
-  grid-auto-rows: minmax(100px, auto); 
+  grid-auto-rows: minmax(100px, auto);
   grid-column-gap: 15px;
-  grid-row-gap: 15px; 
-  grid-template-areas: 
-    "menuBar menuBar menuBar menuBar"
-    "graph1 graph1 graph2 graph2"
-    "graph3 graph3 graph4 graph4";
+  grid-row-gap: 15px;
+  grid-template-areas:
+    "side side main main"
+    "footer footer footer footer";
   justify-items: stretch;
-  align-items: stretch; 
-
+  align-items: stretch;
 }
 
 .menuBar {
   grid-area: menuBar;
   background: #DC143C;
   grid-column: 1/5;
-
-  /* grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  background-color: rgb(128, 0, 0); */
-
 }
-.graph1 {
-  grid-area: graph1;
-  background: #DC143C;  
+
+.side {
+  grid-area: side;
+  background: #DC143C;
   grid-column: 1/2;
-
-  /* grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  background-color: rgb(128, 0, 0); */
-
 }
-.graph2 {
-  grid-area: graph2;
+
+.main {
+  grid-area: main;
   background: #7FFF00;
   grid-column: 2/5;
-
-  /* grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  background-color: rgb(128, 0, 0); */
-
 }
-.graph3 {
-  grid-area: graph3;
+
+.footer {
+  grid-area: footer;
   background: #DC143C;
-  grid-column: 1/3;
-
-  /* grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 3;
-  grid-row-end: 4;
-  background-color: rgb(128, 0, 0); */
-
-}
-.graph4 {
-  grid-area: graph4;
-  background: #DC143C;
-  grid-column: 3/5;
-
-  /* grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  grid-row-end: 4;
-  background-color: rgb(128, 0, 0); */
-
+  grid-column: 1/5;
 }
