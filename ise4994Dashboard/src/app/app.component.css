@@ -8,12 +8,18 @@
      text-align: center;
      font-size: 50px;
      font-weight: bold;
+     border-style: dotted;
+     border-width: 3.5px;
+     border-color: maroon;
 }
 
 /* Add a Maroon background color to the top navigation */
 .navigationBar {
   background-color: #800000;
   overflow: hidden;
+  border-style: dotted;
+  border-width: 3.5px;
+  border-color: white;
 }
 
 /* Style the words/links inside the navigation bar */
@@ -45,8 +51,8 @@
   /* Allowing grid container to be flexible with item size. */
   grid-auto-columns: minmax(100px, auto);
   grid-auto-rows: minmax(100px, auto);
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
+  grid-column-gap: 4.5px;
+  grid-row-gap: 4.5px;
   grid-template-areas:
     "side side main main"
     "footer footer footer footer";
@@ -54,26 +60,42 @@
   align-items: stretch;
 }
 
+/* Never used.
+
 .menuBar {
   grid-area: menuBar;
   background: #DC143C;
   grid-column: 1/5;
+  border-style: dashed;
+  border-width: 3.5px;
+  border-color: grey;
 }
+
+*/
 
 .side {
   grid-area: side;
-  background: #DC143C;
+  background: #205c71;
   grid-column: 1/2;
+  border-style: dashed;
+  border-width: 3.5px;
+  border-color: grey;
 }
 
 .main {
   grid-area: main;
   background: #7FFF00;
   grid-column: 2/5;
+  border-style: dashed;
+  border-width: 3.5px;
+  border-color: grey;
 }
 
 .footer {
   grid-area: footer;
-  background: #DC143C;
+  background: #205c71;
   grid-column: 1/5;
+  border-style: dashed;
+  border-width: 3.5px;
+  border-color: grey;
 }
