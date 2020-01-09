@@ -17,52 +17,52 @@
 </div>
 
 <div class="navigationBar">
-	<a class="active" routerLink="app.component.html">Home</a>
-	<a routerLink="data.html">Data</a>
-	<a routerLink="equipment.html">Equipment</a>
-	<a routerLink="physicalAssets.html">Physical Assets</a>
-	<a routerLink="jobs.html">Jobs</a>
+	<a routerLink="/home" routerLinkActive = "active">Home</a>
+	<a routerLink="/data" routerLinkActive = "active">Data</a>
+	<a routerLink="/equipment" routerLinkActive = "active">Equipment</a>
+	<a routerLink="/physicalAssets" routerLinkActive = "active">Physical Assets</a>
+	<a routerLink="/jobs" routerLinkActive = "active">Jobs</a>
 </div>
 
 <body>
-
-	<!-- Adding grid areas (side, main, footer) to website. -->
-
-	<div class="gridContainer">
-
-		<div class="side">side</div>
-
-		<div class="main">
-
-			<!-- Adding data into table. -->
-
-			<table border=1>
-				<tr>
-					<app-table-header [tagNames]=allData.tagNames></app-table-header>
-				</tr>
-
-				<tr *ngFor="let dataPoint of allData.generalData">
-					<app-table-row-data [dataPoint]=dataPoint [tagNames]=allData.tagNames> </app-table-row-data>
-				</tr>
-			</table>
-
-			<!-- Adding charts into table. -->
-
-			<div>
-				<app-graph></app-graph>
-				<app-dynamic-line-graph></app-dynamic-line-graph>
-			</div>
-
-
-		</div>
-
-		<div class="footer">footer</div>
-
-	</div>
-
 
 	<router-outlet></router-outlet>
 
 </body>
 
 </html>
+
+
+<!-- Old source code for graphs
+
+<div class="gridContainer">
+
+	<div class="side">side</div>
+
+	<div class="main">
+
+
+		<table border=1>
+			<tr>
+				<app-table-header [tagNames]=allData.tagNames></app-table-header>
+			</tr>
+
+			<tr *ngFor="let dataPoint of allData.generalData">
+				<app-table-row-data [dataPoint]=dataPoint [tagNames]=allData.tagNames> </app-table-row-data>
+			</tr>
+		</table>
+
+
+		<div>
+			<app-graph></app-graph>
+			<app-dynamic-line-graph></app-dynamic-line-graph>
+		</div>
+
+
+	</div>
+
+	<div class="footer">footer</div>
+
+</div>
+
+-->
