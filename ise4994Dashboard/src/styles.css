@@ -37,8 +37,51 @@ header{
 		line-clamp textFont {
 			padding: len;
 
-			
+
 		}
 
 	}
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: .75fr 2fr;
+  /* Allowing grid container to be flexible with item size. */
+  grid-auto-columns: minmax(100px, auto);
+  grid-auto-rows: minmax(100px, auto);
+  grid-column-gap: 4.5px;
+  grid-row-gap: 4.5px;
+  grid-template-areas:
+    "side side main main"
+    "footer footer footer footer";
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.side {
+  grid-area: side;
+  background: #205c71;
+  grid-column: 1/2;
+  border-style: dashed;
+  border-width: 3.5px;
+  border-color: grey;
+}
+
+.main {
+  grid-area: main;
+  background: #7FFF00;
+  grid-column: 2/5;
+  border-style: dashed;
+  border-width: 3.5px;
+  border-color: grey;
+}
+
+.footer {
+  grid-area: footer;
+  background: #205c71;
+  grid-column: 1/5;
+  border-style: dashed;
+  border-width: 3.5px;
+  border-color: grey;
 }
