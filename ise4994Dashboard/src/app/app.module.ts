@@ -14,7 +14,6 @@ import { DynamicLineGraphComponent } from './dynamic-line-graph/dynamic-line-gra
     GraphComponent,
     TableRowDataComponent,
     TableHeaderComponent,
-    StaticLineGraphComponent,
     DynamicLineGraphComponent
   ],
   imports: [
