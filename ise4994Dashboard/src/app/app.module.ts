@@ -3,11 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+/* Data table/graph components. */
 import { GraphComponent } from './graph/graph.component';
 import { TableRowDataComponent } from './table-row-data/table-row-data.component';
 import { TableHeaderComponent } from './table-header/table-header.component';
 import { DynamicLineGraphComponent } from './dynamic-line-graph/dynamic-line-graph.component';
 
+/* Site page components. */
 import { RouterModule, Routes } from '@angular/router';
 import { DataComponent } from './data/data.component';
 import { EquipmentComponent } from './equipment/equipment.component';
