@@ -2,15 +2,28 @@
 
 <div class="gridContainer">
 
-     <div class="side">side</div>
+	<div class="side">side</div>
 
      <div class="main">
 
+		<table border=1>
+			<tr>
+				<app-table-header [tagNames]=allData.tagNames></app-table-header>
+			</tr>
+
+			<tr *ngFor="let dataPoint of allData.generalData">
+				<app-table-row-data [dataPoint]=dataPoint [tagNames]=allData.tagNames> </app-table-row-data>
+			</tr>
+		</table>
 
 
+		<div>
+			<app-graph></app-graph>
+			<app-dynamic-line-graph></app-dynamic-line-graph>
+		</div>
 
      </div>
 
-     <div class="footer">footer</div>
+	<div class="footer">footer</div>
 
 </div>
