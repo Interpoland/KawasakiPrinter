@@ -24,29 +24,29 @@ const appRoutes: Routes = [
   {
     path: 'home',
     component: HomeComponent
-},
+  },
   {
-   path: 'data',
-   component: DataComponent
-},
+    path: 'data',
+    component: DataComponent
+  },
   {
-   path: 'equipment',
-   component: EquipmentComponent
-},
+    path: 'equipment',
+    component: EquipmentComponent
+  },
   {
-   path: 'physicalAssets',
-   component: PhysicalAssetsComponent
-},
+    path: 'physicalAssets',
+    component: PhysicalAssetsComponent
+  },
   {
-   path: 'jobs',
-   component: JobsComponent
-},
-/* Adding in default page path. */
+    path: 'jobs',
+    component: JobsComponent
+  },
+  /* Adding in default page path. */
   {
-   path: '',
-   redirectTo: "/home",
-   pathMatch: "full"
-}
+    path: '',
+    redirectTo: "/home",
+    pathMatch: "full"
+  }
 ];
 
 @NgModule({
