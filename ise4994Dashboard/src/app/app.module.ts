@@ -18,6 +18,10 @@ import { PhysicalAssetsComponent } from './physical-assets/physical-assets.compo
 import { JobsComponent } from './jobs/jobs.component';
 import { HomeComponent } from './home/home.component';
 
+/* Initiating HTTP services. */
+import { HttpClientModule } from '@angular/common/http';
+
+
 /* Adding routes to other site pages. */
 
 const appRoutes: Routes = [
@@ -67,7 +71,8 @@ const appRoutes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true })
+      { enableTracing: false }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

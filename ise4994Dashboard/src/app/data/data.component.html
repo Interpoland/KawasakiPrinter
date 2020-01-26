@@ -2,25 +2,35 @@
 
 <div class="gridContainer">
 
-	<div class="side">side</div>
+	<div class="side">
+		side
+		<a>Graph</a>
+		<a>Table</a>
+	</div>
 
      <div class="main">
-
-		<table border=1>
+		main
+		<table>
 			<tr>
-				<app-table-header [tagNames]=allData.tagNames></app-table-header>
+				<td>
+					start
+				</td>
+				<td>
+					<input id = "startTime" type="datetime-local">
+				</td>
 			</tr>
-
-			<tr *ngFor="let dataPoint of allData.generalData">
-				<app-table-row-data [dataPoint]=dataPoint [tagNames]=allData.tagNames> </app-table-row-data>
+			<tr>
+				<td>
+					end
+				</td>
+				<td>
+					<input id = "endTime" type="datetime-local">
+				</td>
 			</tr>
 		</table>
+		<button (click) = "sendRequest()"> Go </button>
 
 
-		<div>
-			<app-graph></app-graph>
-			<app-dynamic-line-graph></app-dynamic-line-graph>
-		</div>
 
      </div>
 
