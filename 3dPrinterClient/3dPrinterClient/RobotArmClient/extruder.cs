@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace RobotArmClient
 {
     /// <summary>
-    /// extruder class. Commands that need the extruder are generally kept here
+    /// Extruder class. Commands that need the extruder are generally kept here
     /// </summary>
-    public class extruder
+    public class Extruder
     {
         /// <summary>
         /// port - port used to communicate with the extruder
@@ -20,20 +20,20 @@ namespace RobotArmClient
         /// feedrate - extrusion rate
         /// </summary>
         System.IO.Ports.SerialPort port;
-        double origin; //deprecated
+        readonly double origin; //deprecated
         double currentExtrusion; // Current Extrusion Rate Based on Motor
         unit units;
         double feedrate;
         public Queue<String> output;
         public reference coordinateMode;
-        System.Windows.Forms.Timer timer;
+        readonly System.Windows.Forms.Timer timer;
         public double ePosition;
 
         /// <summary>
-        /// creates and extruder object when the portname is known I.E. COM1, COM2
+        /// creates an extruder object when the portname is known I.E. COM1, COM2
         /// </summary>
         /// <param name="portName">port to use for communication with the robot arm.</param>
-        public extruder(string portName)
+        public Extruder(string portName)
         {
             output = new Queue<string>();
             units = unit.millimeters;
@@ -46,23 +46,34 @@ namespace RobotArmClient
             timer.Enabled = true;
         }
 
+        /// <summary>
+        /// gets the current position of the extruder.
+        /// M114 - get current position
+        /// </summary>
+        /// <param name="sender">the object that creates an event. required for function signature</param>
+        /// <param name="e">an event created by the sender object</param>
         private void Timer_Tick(object sender, EventArgs e)
         {
             port.WriteLine("M114");
         }
 
+        /// <summary>
+        /// configures the extruder port as a serial port
+        /// </summary>
+        /// <param name="portName">port to use for communication with the robot arm</param>
         void configureExtruderPort(string portName)
         {
             port = new System.IO.Ports.SerialPort();
             port.BaudRate = 115200;
             port.PortName = portName;
-            port.DataReceived += Port_DataReceived;//when data is sent from the extruder on the port, run this function
+            port.DataReceived += Port_DataReceived; //when data is sent from the extruder on the port, run this function
             port.Open();
         }
+
         /// <summary>
         /// todo - read data and handle properly
         /// </summary>
-        /// <param name="sender"></param>
+        /// <param name="sender">object that creates an event (e.g. button)</param>
         /// <param name="e"></param>
         private void Port_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
@@ -76,6 +87,10 @@ namespace RobotArmClient
                 this.ePosition = Convert.ToDouble(MPtext);
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parameters">a list</param>
         public void G1(List<string> parameters)
         {
             double value = 0;
@@ -90,6 +105,11 @@ namespace RobotArmClient
 
             this.port.WriteLine("G1 E" + value.ToString());
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="temperature"></param>
+        /// <param name="toolNumber"></param>        
         public void M104(int temperature, int toolNumber)
         {
             this.port.WriteLine("M104 S" + temperature.ToString() + " T" + toolNumber.ToString());

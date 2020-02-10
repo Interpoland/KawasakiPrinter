@@ -31,7 +31,7 @@ namespace RobotArmClient
         int fileLine = 0;
         List<string> names;
         robotArm arm;
-        extruder extruder;
+        Extruder extruder;
         public bool armStarted = false;
         public bool extruderStarted = false;
 
@@ -379,7 +379,7 @@ namespace RobotArmClient
 
         private void extruderPort_SelectedIndexChanged(object sender, EventArgs e)
         {
-            extruder = new extruder(extruderPort.SelectedItem.ToString());
+            extruder = new Extruder(extruderPort.SelectedItem.ToString());
             extruderStarted = true;
         }
 
