@@ -201,15 +201,12 @@ namespace RobotArmClient
                     {
                         targetTemp = int.Parse(param.Substring(1));
                     }
-                    else
-                    {
-                        throw new NotImplementedException();
-                    }
+                    
                 }
                 extruder.M109(targetTemp);
             }
             else if (parameters[0] == "M82")
-            {
+            { 
                 extruder.M82();
             }
             else if (parameters[0] == "M83")
@@ -345,6 +342,9 @@ namespace RobotArmClient
             actualX.Text = "actual X = " + arm.currentPosition.x;
             actualY.Text = "actual Y = " + arm.currentPosition.y;
             actualZ.Text = "actual Z = " + arm.currentPosition.z;
+            setX.Text = "programmed X = " + String.Format("{0:0.000}", arm.programmedPosition.x);
+            setY.Text = "programmed Y = " + String.Format("{0:0.000}", arm.programmedPosition.y);
+            setZ.Text = "programmed Z = " + String.Format("{0:0.000}", arm.programmedPosition.z);
 
             if (!arm.running)
             {
@@ -436,6 +436,16 @@ namespace RobotArmClient
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// sets the robot arm origin coordinates to the current coordinates
+        /// </summary>
+        /// <param name="sender">the 'Set Origin' button</param>
+        /// <param name="e">clicking the button</param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            arm.SetRobotOrigin();
         }
     }
 }

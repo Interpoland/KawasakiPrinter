@@ -25,6 +25,7 @@ namespace RobotArmClient
         System.Windows.Forms.Timer timer; // excuting function every few seconds
         point origin;
         public point currentPosition;
+        public point programmedPosition;
         public reference coordinateMode;
         unit units;
         double speed;
@@ -36,6 +37,7 @@ namespace RobotArmClient
         /// <summary>
         /// This class defines a point zero where the absolute movement calculation
         /// would reference. 
+        /// **Unused**
         /// </summary>
         private class pointZero
         {
@@ -50,7 +52,8 @@ namespace RobotArmClient
             /// <param name="portName">name of the port to use I.E. COM1, COM2</param>
         public robotArm(string portName)
         {
-            origin = new point(29.423, 1081.853, -23.044, unit.millimeters, reference.absolute);
+            origin = new point(-94.986, 1103.26, -20.854, unit.millimeters, reference.absolute);
+            programmedPosition = new point (0, 0, 0, unit.millimeters, reference.absolute);
             outputs = new Queue<string>();
             currentPosition = new point(0, 0, 0, unit.millimeters, reference.absolute);
             port = new System.IO.Ports.SerialPort();
@@ -104,6 +107,9 @@ namespace RobotArmClient
                 this.currentPosition.x = Convert.ToDouble(positionValues[0]);
                 this.currentPosition.y = Convert.ToDouble(positionValues[1]);
                 this.currentPosition.z = Convert.ToDouble(positionValues[2]);
+                this.programmedPosition.x = Convert.ToDouble(positionValues[0]) - origin.x;
+                this.programmedPosition.y = Convert.ToDouble(positionValues[1]) - origin.y;
+                this.programmedPosition.z = Convert.ToDouble(positionValues[2]) - origin.z;
                 string useless = port.ReadLine();
                 port.Write("\r\n");
             }
@@ -125,6 +131,11 @@ namespace RobotArmClient
             port.WriteLine("HERE pose"); 
         }
 
+        public void SetRobotOrigin()
+        {
+            this.origin = this.currentPosition;
+        }
+
         /// <summary>
         /// rapid movement.
         /// paramters - X Y Z
@@ -133,7 +144,7 @@ namespace RobotArmClient
         /// <param name="parameters"></param>
         public void G0(List<string> parameters)
         {
-            double x = 0, y = 0, z = 0;
+            double x = programmedPosition.x, y = programmedPosition.y, z = programmedPosition.z;
 
             foreach (string param in parameters)
             {
@@ -160,9 +171,9 @@ namespace RobotArmClient
             {
                 point absoluteDestination = origin + point;
                 point increment = absoluteDestination - currentPosition;
-                this.port.WriteLine("X = " + (point.x - increment.x));
-                this.port.WriteLine("Y = " + (point.y - increment.y));
-                this.port.WriteLine("Z = " + (point.z - increment.z));
+                this.port.WriteLine("X = " + (increment.x));
+                this.port.WriteLine("Y = " + (increment.y));
+                this.port.WriteLine("Z = " + (increment.z));
 
 
             }
@@ -178,7 +189,7 @@ namespace RobotArmClient
         }
         public Status G1(List<string> parameters)
         {
-            double x = 0, y = 0, z = 0;
+            double x = programmedPosition.x, y = programmedPosition.y, z = programmedPosition.z;
 
             foreach (string param in parameters)
             {
@@ -207,9 +218,9 @@ namespace RobotArmClient
             {
                 point absoluteDestination = origin + point;
                 point increment = absoluteDestination - currentPosition;
-                this.port.WriteLine("X = " + (point.x - increment.x));
-                this.port.WriteLine("Y = " + (point.y - increment.y));
-                this.port.WriteLine("Z = " + (point.z - increment.z));
+                this.port.WriteLine("X = " + (increment.x));
+                this.port.WriteLine("Y = " + (increment.y));
+                this.port.WriteLine("Z = " + (increment.z));
             }
             else
             {

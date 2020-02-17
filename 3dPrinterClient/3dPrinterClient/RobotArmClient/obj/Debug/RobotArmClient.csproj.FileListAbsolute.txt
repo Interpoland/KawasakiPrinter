@@ -37,3 +37,12 @@ C:\Users\Gordon\Documents\GitHub\3dPrinterClient\3dPrinterClient\RobotArmClient\
 C:\Users\Gordon\Documents\GitHub\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.csproj.CoreCompileInputs.cache
 C:\Users\Gordon\Documents\GitHub\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.exe
 C:\Users\Gordon\Documents\GitHub\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.pdb
+Z:\ise4994\3dPrinterClient\3dPrinterClient\RobotArmClient\bin\Debug\RobotArmClient.exe.config
+Z:\ise4994\3dPrinterClient\3dPrinterClient\RobotArmClient\bin\Debug\RobotArmClient.exe
+Z:\ise4994\3dPrinterClient\3dPrinterClient\RobotArmClient\bin\Debug\RobotArmClient.pdb
+Z:\ise4994\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.csprojAssemblyReference.cache
+Z:\ise4994\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.Form1.resources
+Z:\ise4994\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.Properties.Resources.resources
+Z:\ise4994\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.csproj.GenerateResource.cache
+Z:\ise4994\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.exe
+Z:\ise4994\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.pdb
