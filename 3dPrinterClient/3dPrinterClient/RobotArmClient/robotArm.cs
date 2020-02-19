@@ -25,7 +25,7 @@ namespace RobotArmClient
         System.Windows.Forms.Timer timer; // excuting function every few seconds
         point origin;
         public point currentPosition;
-        public point programmedPosition;
+        public point programmedPosition; // used for absolute coordinates
         public reference coordinateMode;
         unit units;
         double speed;
@@ -33,18 +33,6 @@ namespace RobotArmClient
         public string empty = "";
         public bool running = false;
         public double feedRate = -1;
-
-        /// <summary>
-        /// This class defines a point zero where the absolute movement calculation
-        /// would reference. 
-        /// **Unused**
-        /// </summary>
-        private class pointZero
-        {
-            double X = 29.423;
-            double Y = 1081.853;
-            double Z = -23.044;
-        }
 
             /// <summary>
             /// creates a robotarm class when the portname is known.
@@ -208,7 +196,7 @@ namespace RobotArmClient
                     double value = Convert.ToDouble(param.Substring(1));
                     z = value;
                 }
-                // add F and E
+                // add F 
             }
 
             

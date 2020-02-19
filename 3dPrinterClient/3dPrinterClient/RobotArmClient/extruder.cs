@@ -123,6 +123,10 @@ namespace RobotArmClient
         {
             this.port.WriteLine("M106 P" + fanIndex.ToString() + " S" + fanSpeed.ToString());
         }
+        /// <summary>
+        /// wait for hotend temperature
+        /// </summary>
+        /// <param name="targetTemp"></param>
         public void M109(int targetTemp)
         {
             this.port.WriteLine("M109 S" + targetTemp.ToString());
@@ -133,6 +137,9 @@ namespace RobotArmClient
             throw new NotImplementedException();
 
         }
+        /// <summary>
+        /// wait for bed temperature
+        /// </summary>
         public void M190()
         {
             throw new NotImplementedException();
