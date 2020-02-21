@@ -26,13 +26,13 @@ namespace RobotArmClient
         point origin;
         public point currentPosition;
         public point programmedPosition; // used for absolute coordinates
-        public reference coordinateMode;
-        unit units;
+        public Reference coordinateMode;
+        Unit units;
         double speed;
         public Queue<string> outputs;
         public string empty = "";
         public bool running = false;
-        public double feedRate = -1;
+        public double feedRate = -1; //units are mm/min
 
             /// <summary>
             /// creates a robotarm class when the portname is known.
@@ -40,13 +40,13 @@ namespace RobotArmClient
             /// <param name="portName">name of the port to use I.E. COM1, COM2</param>
         public robotArm(string portName)
         {
-            origin = new point(-94.986, 1103.26, -20.854, unit.millimeters, reference.absolute);
-            programmedPosition = new point (0, 0, 0, unit.millimeters, reference.absolute);
+            origin = new point(-94.986, 1103.26, -20.854, Unit.millimeters, Reference.absolute);
+            programmedPosition = new point (0, 0, 0, Unit.millimeters, Reference.absolute);
             outputs = new Queue<string>();
-            currentPosition = new point(0, 0, 0, unit.millimeters, reference.absolute);
+            currentPosition = new point(0, 0, 0, Unit.millimeters, Reference.absolute);
             port = new System.IO.Ports.SerialPort();
-            units = unit.millimeters;
-            coordinateMode = reference.incremental;
+            units = Unit.millimeters;
+            coordinateMode = Reference.incremental;
             configureRobotArmPort(portName);
             getPosition();
             timer = new System.Windows.Forms.Timer();
@@ -155,7 +155,7 @@ namespace RobotArmClient
 
             var point = new point(x, y, z, this.units, this.coordinateMode);
 
-            if (point.Ref == reference.absolute)
+            if (point.Ref == Reference.absolute)
             {
                 point absoluteDestination = origin + point;
                 point increment = absoluteDestination - currentPosition;
@@ -202,7 +202,7 @@ namespace RobotArmClient
             
             var point = new point(x, y, z, this.units, this.coordinateMode);
 
-            if (point.Ref == reference.absolute)
+            if (point.Ref == Reference.absolute)
             {
                 point absoluteDestination = origin + point;
                 point increment = absoluteDestination - currentPosition;
@@ -225,11 +225,11 @@ namespace RobotArmClient
         }
         public void G20()
         {
-            this.units = unit.inches;
+            this.units = Unit.inches;
         }
         public void G21()
         {
-            this.units = unit.millimeters;
+            this.units = Unit.millimeters;
         }
         public void G28()
         {
@@ -241,11 +241,11 @@ namespace RobotArmClient
         public void G90()
         {
             //throw new NotImplementedException();
-            this.coordinateMode = reference.absolute;
+            this.coordinateMode = Reference.absolute;
         }
         public void G91()
         {
-            this.coordinateMode = reference.incremental;
+            this.coordinateMode = Reference.incremental;
         }
         public void G92()
         {

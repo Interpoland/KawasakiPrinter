@@ -23,8 +23,8 @@ namespace RobotArmClient
         public double x;
         public double y;
         public double z;
-        public unit units;
-        public reference Ref;
+        public Unit units;
+        public Reference Ref;
 
         /// <summary>
         /// empty constructor. deprecated
@@ -41,7 +41,7 @@ namespace RobotArmClient
         /// <param name="z">value of the Z coordinate</param>
         /// <param name="units">units to be used for measurement</param>
         /// <param name="Ref">frame of reference of the point.</param>
-        public point(double x, double y, double z, unit units, reference Ref)
+        public point(double x, double y, double z, Unit units, Reference Ref)
         {
             this.x = x;
             this.y = y;
@@ -57,7 +57,7 @@ namespace RobotArmClient
         /// </summary>
         /// <param name="A"></param>
         /// <param name="B"></param>
-        /// <returns></returns>
+        /// <returns>the new point in millimeters</returns>
         public static point operator +(point A, point B)
         {
             A.toMillimeters();
@@ -72,7 +72,7 @@ namespace RobotArmClient
         /// </summary>
         /// <param name="A"></param>
         /// <param name="B"></param>
-        /// <returns></returns>
+        /// <returns>the new point in millimeters</returns>
         public static point operator -(point A, point B)
         {
             A.toMillimeters();
@@ -85,33 +85,35 @@ namespace RobotArmClient
         /// <returns></returns>
         public string toString()
         {
-            return "(" + x + "," + y + "," + z + ")";
+            return "(" + x + "," + y + "," + z + "," + units.ToString() + ")";
         }
         /// <summary>
         /// sets the point to inches mode if it isnt already
+        /// conversion factor: 1in = 25.4mm
         /// </summary>
         public void toInches()
         {
-            if (units == unit.millimeters)
+            if (units == Unit.millimeters)
             {
                 x = x / 25.4;
                 y = y / 25.4;
                 z = z / 25.4;
-                units = unit.inches;
+                units = Unit.inches;
             }
         }
 
         /// <summary>
         /// sets the point to millimeters mode if it isnt already.
+        /// conversion factor 1in = 25.4mm
         /// </summary>
         public void toMillimeters()
         {
-            if (units == unit.inches)
+            if (units == Unit.inches)
             {
                 x = x * 25.4;
                 y = y * 25.4;
                 z = z * 25.4;
-                units = unit.millimeters;
+                units = Unit.millimeters;
             }
         }
 
@@ -121,13 +123,13 @@ namespace RobotArmClient
         /// <param name="currentPosition"></param>
         public void toIncremental(point currentPosition)
         {
-            if (Ref != reference.incremental)
+            if (Ref != Reference.incremental)
             {
                 var newPoint = this - currentPosition;
                 x = newPoint.x;
                 y = newPoint.y;
                 z = newPoint.z;
-                this.Ref = reference.incremental;
+                this.Ref = Reference.incremental;
             }
         }
         /// <summary>
@@ -136,13 +138,13 @@ namespace RobotArmClient
         /// <param name="currentPosition"></param>
         public void toAbsolute(point currentPosition)
         {
-            if (Ref != reference.absolute)
+            if (Ref != Reference.absolute)
             {
                 var newPoint = this + currentPosition;
                 x = newPoint.x;
                 y = newPoint.y;
                 z = newPoint.z;
-                this.Ref = reference.absolute;
+                this.Ref = Reference.absolute;
             }
         }
     }

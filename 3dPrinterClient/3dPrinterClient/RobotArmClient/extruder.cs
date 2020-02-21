@@ -20,12 +20,12 @@ namespace RobotArmClient
         /// feedrate - extrusion rate
         /// </summary>
         System.IO.Ports.SerialPort port;
-        readonly double origin; //deprecated
+        //readonly double origin; //deprecated
         double currentExtrusion; // Current Extrusion Rate Based on Motor
-        unit units;
+        Unit units;
         double feedrate;
         public Queue<String> output;
-        public reference coordinateMode;
+        public Reference coordinateMode;
         readonly System.Windows.Forms.Timer timer;
         public double ePosition;
 
@@ -36,8 +36,8 @@ namespace RobotArmClient
         public Extruder(string portName)
         {
             output = new Queue<string>();
-            units = unit.millimeters;
-            coordinateMode = reference.incremental;
+            units = Unit.millimeters;
+            coordinateMode = Reference.incremental;
             configureExtruderPort(portName);
             currentExtrusion = 0;
             timer = new System.Windows.Forms.Timer();
@@ -60,18 +60,18 @@ namespace RobotArmClient
         /// <summary>
         /// configures the extruder port as a serial port
         /// </summary>
-        /// <param name="portName">port to use for communication with the robot arm</param>
+        /// <param name="portName">port to use for communication with the 3D printer board</param>
         void configureExtruderPort(string portName)
         {
             port = new System.IO.Ports.SerialPort();
-            port.BaudRate = 115200;
+            port.BaudRate = 115200; //rate of data transfer (bits per second)
             port.PortName = portName;
             port.DataReceived += Port_DataReceived; //when data is sent from the extruder on the port, run this function
             port.Open();
         }
 
         /// <summary>
-        /// todo - read data and handle properly
+        /// todo - read data and handle properly **this function seems incomplete**
         /// </summary>
         /// <param name="sender">object that creates an event (e.g. button)</param>
         /// <param name="e"></param>
@@ -88,25 +88,27 @@ namespace RobotArmClient
             }
         }
         /// <summary>
-        /// 
+        /// G1 - Linear Move (w/ extruder)
+        /// performs a linear move while extruding filament
         /// </summary>
         /// <param name="parameters">a list</param>
         public void G1(List<string> parameters)
         {
             double value = 0;
-            for (int i = 1; i < parameters.Count(); i++)
+            foreach (string param in parameters)
             {
-                if (parameters[i].ToUpper()[0] == 'E')
+                if (param[0] == 'E')
                 {
-                     value = double.Parse(parameters[i].Substring(1));
+                     value = double.Parse(param.Substring(1));
                      // this.port.WriteLine("E" + value.ToString()); // Just wanted to try extruder (11/14/2018)
                 }
             }
 
             this.port.WriteLine("G1 E" + value.ToString());
         }
+
         /// <summary>
-        /// 
+        /// M104 - sets hotend temperature without waiting
         /// </summary>
         /// <param name="temperature"></param>
         /// <param name="toolNumber"></param>        
@@ -114,17 +116,28 @@ namespace RobotArmClient
         {
             this.port.WriteLine("M104 S" + temperature.ToString() + " T" + toolNumber.ToString());
         }
+
+        /// <summary>
+        /// M105 - requests a report of the hotend temperature
+        /// </summary>
         public void M105()
         {
-            throw new NotImplementedException();
-
+            this.port.WriteLine("M105");
+            //port.DataReceived += Port_DataReceived; //run this to recieve reported data
         }
+
+        /// <summary>
+        /// M106 - used to turn on a fan and set the fan speed
+        /// </summary>
+        /// <param name="fanIndex"> indicates which fan to select </param>
+        /// <param name="fanSpeed"> sets fan speed using the range 0-255 (0%-100%)</param>
         public void M106(int fanIndex, int fanSpeed)
         {
             this.port.WriteLine("M106 P" + fanIndex.ToString() + " S" + fanSpeed.ToString());
         }
         /// <summary>
-        /// wait for hotend temperature
+        /// M109 - wait for hotend temperature
+        /// sets the hotend temperature and waits for it to be achieved.
         /// </summary>
         /// <param name="targetTemp"></param>
         public void M109(int targetTemp)
@@ -132,33 +145,57 @@ namespace RobotArmClient
             this.port.WriteLine("M109 S" + targetTemp.ToString());
 
         }
-        public void M140()
-        {
-            throw new NotImplementedException();
 
-        }
         /// <summary>
+        /// M140 - set bed temperature
+        /// sets the bed temperature without waiting
+        /// </summary>
+        public void M140(int temp)
+        {
+            this.port.WriteLine("M140 S" + temp.ToString());
+        }
+
+        /// <summary>
+        /// M190 - wait for bed temperature
         /// wait for bed temperature
         /// </summary>
-        public void M190()
+        public void M190(int temp)
         {
-            throw new NotImplementedException();
+            this.port.WriteLine("M140 S" + temp.ToString());
 
         }
+
+        /// <summary>
+        /// M221 - set flow percentage
+        /// sets the flow rate percentage for extruder E
+        /// </summary>
+        /// <param name="feedPercent"></param>
         public void M221(int feedPercent)
         {
             this.port.WriteLine("M221 S" + feedPercent.ToString());
 
         }
+
+        /// <summary>
+        /// M82 - E absolute
+        /// overrides G91 to put E axis in absolute coordinates,
+        /// regardless of other axes
+        /// </summary>
         public void M82()
         {
-            coordinateMode = reference.absolute;
+            coordinateMode = Reference.absolute;
             port.WriteLine("M82");
 
         }
+
+        /// <summary>
+        /// M83 - E relative
+        /// overrides G90 to put E axis in relative (incremental) coordinates,
+        /// regardless of other axes
+        /// </summary>
         public void M83()
         {
-            coordinateMode = reference.incremental;
+            coordinateMode = Reference.incremental;
             port.WriteLine("M83");
         }
     }

@@ -9,7 +9,7 @@ namespace RobotArmClient
     /// <summary>
     /// possible units used by the system. only inches and millimeters are possible.
     /// </summary>
-    public enum unit
+    public enum Unit
     {
         inches, millimeters
     }
@@ -18,9 +18,9 @@ namespace RobotArmClient
     /// possible frames of reference used by the system are kept here.
     /// only absolute and incremental are possible.
     /// </summary>
-    public enum reference
+    public enum Reference
     {
-        absolute = 10, incremental
+        absolute = 10, incremental //why is it initialized to 10?
     }
 
 

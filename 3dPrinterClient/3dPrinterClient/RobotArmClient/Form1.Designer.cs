@@ -59,6 +59,8 @@
             this.mode = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.actualE = new System.Windows.Forms.Label();
+            this.setE = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Extruder
@@ -94,6 +96,7 @@
             this.label1.Size = new System.Drawing.Size(113, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Robot Arm";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -172,37 +175,40 @@
             // setX
             // 
             this.setX.AutoSize = true;
-            this.setX.Location = new System.Drawing.Point(799, 248);
+            this.setX.Location = new System.Drawing.Point(796, 290);
             this.setX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.setX.Name = "setX";
             this.setX.Size = new System.Drawing.Size(176, 25);
             this.setX.TabIndex = 9;
             this.setX.Text = "programmed X = ";
+            this.setX.Click += new System.EventHandler(this.setX_Click);
             // 
             // setY
             // 
             this.setY.AutoSize = true;
-            this.setY.Location = new System.Drawing.Point(798, 273);
+            this.setY.Location = new System.Drawing.Point(795, 315);
             this.setY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.setY.Name = "setY";
             this.setY.Size = new System.Drawing.Size(177, 25);
             this.setY.TabIndex = 10;
             this.setY.Text = "programmed Y = ";
+            this.setY.Click += new System.EventHandler(this.setY_Click);
             // 
             // setZ
             // 
             this.setZ.AutoSize = true;
-            this.setZ.Location = new System.Drawing.Point(799, 301);
+            this.setZ.Location = new System.Drawing.Point(796, 340);
             this.setZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.setZ.Name = "setZ";
             this.setZ.Size = new System.Drawing.Size(175, 25);
             this.setZ.TabIndex = 11;
             this.setZ.Text = "programmed Z = ";
+            this.setZ.Click += new System.EventHandler(this.setZ_Click);
             // 
             // feedrateArm
             // 
             this.feedrateArm.AutoSize = true;
-            this.feedrateArm.Location = new System.Drawing.Point(809, 351);
+            this.feedrateArm.Location = new System.Drawing.Point(806, 441);
             this.feedrateArm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.feedrateArm.Name = "feedrateArm";
             this.feedrateArm.Size = new System.Drawing.Size(166, 25);
@@ -212,7 +218,7 @@
             // TempBed
             // 
             this.TempBed.AutoSize = true;
-            this.TempBed.Location = new System.Drawing.Point(773, 380);
+            this.TempBed.Location = new System.Drawing.Point(770, 470);
             this.TempBed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TempBed.Name = "TempBed";
             this.TempBed.Size = new System.Drawing.Size(202, 25);
@@ -222,7 +228,7 @@
             // TempExt
             // 
             this.TempExt.AutoSize = true;
-            this.TempExt.Location = new System.Drawing.Point(773, 405);
+            this.TempExt.Location = new System.Drawing.Point(770, 495);
             this.TempExt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TempExt.Name = "TempExt";
             this.TempExt.Size = new System.Drawing.Size(201, 25);
@@ -232,12 +238,13 @@
             // currentCommand
             // 
             this.currentCommand.AutoSize = true;
-            this.currentCommand.Location = new System.Drawing.Point(764, 432);
+            this.currentCommand.Location = new System.Drawing.Point(761, 522);
             this.currentCommand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.currentCommand.Name = "currentCommand";
             this.currentCommand.Size = new System.Drawing.Size(210, 25);
             this.currentCommand.TabIndex = 15;
             this.currentCommand.Text = "Current Command = ";
+            this.currentCommand.Click += new System.EventHandler(this.currentCommand_Click);
             // 
             // actualZ
             // 
@@ -248,11 +255,12 @@
             this.actualZ.Size = new System.Drawing.Size(113, 25);
             this.actualZ.TabIndex = 18;
             this.actualZ.Text = "actual Z = ";
+            this.actualZ.Click += new System.EventHandler(this.actualZ_Click);
             // 
             // actualY
             // 
             this.actualY.AutoSize = true;
-            this.actualY.Location = new System.Drawing.Point(859, 195);
+            this.actualY.Location = new System.Drawing.Point(860, 195);
             this.actualY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.actualY.Name = "actualY";
             this.actualY.Size = new System.Drawing.Size(115, 25);
@@ -262,7 +270,7 @@
             // actualX
             // 
             this.actualX.AutoSize = true;
-            this.actualX.Location = new System.Drawing.Point(859, 169);
+            this.actualX.Location = new System.Drawing.Point(861, 170);
             this.actualX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.actualX.Name = "actualX";
             this.actualX.Size = new System.Drawing.Size(114, 25);
@@ -273,7 +281,7 @@
             // feedrateExt
             // 
             this.feedrateExt.AutoSize = true;
-            this.feedrateExt.Location = new System.Drawing.Point(810, 326);
+            this.feedrateExt.Location = new System.Drawing.Point(807, 416);
             this.feedrateExt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.feedrateExt.Name = "feedrateExt";
             this.feedrateExt.Size = new System.Drawing.Size(165, 25);
@@ -335,11 +343,35 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // actualE
+            // 
+            this.actualE.AutoSize = true;
+            this.actualE.Location = new System.Drawing.Point(861, 250);
+            this.actualE.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.actualE.Name = "actualE";
+            this.actualE.Size = new System.Drawing.Size(114, 25);
+            this.actualE.TabIndex = 25;
+            this.actualE.Text = "actual E = ";
+            this.actualE.Click += new System.EventHandler(this.actualE_Click);
+            // 
+            // setE
+            // 
+            this.setE.AutoSize = true;
+            this.setE.Location = new System.Drawing.Point(795, 365);
+            this.setE.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.setE.Name = "setE";
+            this.setE.Size = new System.Drawing.Size(176, 25);
+            this.setE.TabIndex = 26;
+            this.setE.Text = "programmed E = ";
+            this.setE.Click += new System.EventHandler(this.setE_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1768, 740);
+            this.Controls.Add(this.setE);
+            this.Controls.Add(this.actualE);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.mode);
@@ -406,6 +438,8 @@
         private System.Windows.Forms.Label mode;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label actualE;
+        private System.Windows.Forms.Label setE;
     }
 }
 

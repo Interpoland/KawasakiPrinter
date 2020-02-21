@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.IO.Ports;
 
 namespace RobotArmClient
 {
@@ -34,6 +35,8 @@ namespace RobotArmClient
         Extruder extruder;
         public bool armStarted = false;
         public bool extruderStarted = false;
+        string robotArmPortID = "COM4";
+        string extruderPortID = "COM5";
 
         //todo - add an extruder wait and robot arm wait.
 
@@ -114,6 +117,7 @@ namespace RobotArmClient
         /// <param name="gcode"></param>
         private void runGcode(string gcode)
         {
+            currentCommand.Text = " Current Command = " + gcode;
             var parameters = parseGCode(gcode);
             if (parameters[0] == "G0")
             {
@@ -130,6 +134,7 @@ namespace RobotArmClient
                     setX.Text = " programmed X = " + status.getSetPosition().x;
                     setY.Text = " programmed Y = " + status.getSetPosition().y;
                     setZ.Text = " programmed Z = " + status.getSetPosition().z;
+                    setE.Text = " programmed E = ";
                 }
                 if (extruder != null)
                 {
@@ -230,9 +235,26 @@ namespace RobotArmClient
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            names = System.IO.Ports.SerialPort.GetPortNames().ToList();
+            names = SerialPort.GetPortNames().ToList();
             foreach (string name in names)
             {
+                //want to use conditional structure to automatically identify and assign robot arm and extruder ports
+                if (name.Equals(robotArmPortID))
+                {
+                    Console.WriteLine("Robot Arm Port Identified: " + name);
+                    //want to implement arm = new robotArm(name);
+                }
+                else if (name.Equals(extruderPortID))
+                {
+                    Console.WriteLine("Extruder Port Identified: " + name);
+                    //want to implement extruder = new Extruder(name);
+                }
+                else
+                {
+                    Console.WriteLine("Port Unidentifiable: " + name);
+                    Console.WriteLine("Make sure port names are defined correcly for the class.");
+                }
+                    
                 robotArmPort.Items.Add(name);
                 extruderPort.Items.Add(name);
             }
@@ -369,7 +391,7 @@ namespace RobotArmClient
         {
             arm = new robotArm(robotArmPort.SelectedItem.ToString());
             armStarted = true;
-            if (arm.coordinateMode == reference.absolute)
+            if (arm.coordinateMode == Reference.absolute)
                 mode.Text = "absolute";
             else
                 mode.Text = "incremental";
@@ -421,7 +443,7 @@ namespace RobotArmClient
             textBox1.Text = "";
             if (arm != null)
             {
-                if (arm.coordinateMode == reference.absolute)
+                if (arm.coordinateMode == Reference.absolute)
                     mode.Text = "absolute";
                 else
                     mode.Text = "incremental";
@@ -446,6 +468,56 @@ namespace RobotArmClient
         private void button2_Click(object sender, EventArgs e)
         {
             arm.SetRobotOrigin();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void currentCommand_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void setX_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void setY_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void setZ_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void actualE_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void setE_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void actualZ_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
