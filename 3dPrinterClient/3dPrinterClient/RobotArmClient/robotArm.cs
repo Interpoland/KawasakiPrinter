@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace RobotArmClient
 {
@@ -222,6 +223,49 @@ namespace RobotArmClient
             this.port.WriteLine("HERE pose");
             return new Status(new point(x, y, z, units, coordinateMode), feedRate);
 
+        }
+
+        /// <summary>
+        /// G4 - dwell
+        /// </summary>
+        public void G4(List<string> parameters)
+        {
+            int s = -1, p = -1;
+            foreach (string param in parameters)
+            {
+                if (param[0] == 's' || param[0] == 'S')
+                {
+                    s = Convert.ToInt32(param.Substring(1));
+                }
+                else if (param[0] == 'p' || param[0] == 'P')
+                {
+                    p = Convert.ToInt32(param.Substring(1));
+                }
+            }
+
+            if (s == -1)
+            {
+                if (p == -1)
+                {
+                    return;
+                }
+                else
+                {
+                    Thread.Sleep(p);
+                }
+            }
+            else
+            {
+                if (p == -1)
+                { 
+                    return;
+                }
+                else
+                {
+                    Thread.Sleep(s * 1000);
+                }
+                
+            }
         }
         public void G20()
         {

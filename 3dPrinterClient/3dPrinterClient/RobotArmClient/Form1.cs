@@ -143,6 +143,11 @@ namespace RobotArmClient
                 }
 
             }
+            else if (parameters[0] == "G4")
+            {
+                arm.running = true;
+                arm.G4(parameters);
+            }
             else if (parameters[0] == "G20")
             {
                 arm.G20();
