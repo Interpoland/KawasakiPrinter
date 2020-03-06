@@ -179,6 +179,12 @@ namespace RobotArmClient
         public Status G1(List<string> parameters)
         {
             double x = programmedPosition.x, y = programmedPosition.y, z = programmedPosition.z;
+            if (this.coordinateMode == Reference.incremental)
+            {
+                x = 0;
+                y = 0;
+                z = 0;
+            }
 
             foreach (string param in parameters)
             {

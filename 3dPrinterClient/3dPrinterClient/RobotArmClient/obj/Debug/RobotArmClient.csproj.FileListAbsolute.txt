@@ -46,3 +46,12 @@ Z:\ise4994\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClie
 Z:\ise4994\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.csproj.GenerateResource.cache
 Z:\ise4994\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.exe
 Z:\ise4994\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.pdb
+C:\Users\bsta7599\Documents\programs\KawasakiPrinter\3dPrinterClient\3dPrinterClient\RobotArmClient\bin\Debug\RobotArmClient.exe.config
+C:\Users\bsta7599\Documents\programs\KawasakiPrinter\3dPrinterClient\3dPrinterClient\RobotArmClient\bin\Debug\RobotArmClient.exe
+C:\Users\bsta7599\Documents\programs\KawasakiPrinter\3dPrinterClient\3dPrinterClient\RobotArmClient\bin\Debug\RobotArmClient.pdb
+C:\Users\bsta7599\Documents\programs\KawasakiPrinter\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.csprojAssemblyReference.cache
+C:\Users\bsta7599\Documents\programs\KawasakiPrinter\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.Form1.resources
+C:\Users\bsta7599\Documents\programs\KawasakiPrinter\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.Properties.Resources.resources
+C:\Users\bsta7599\Documents\programs\KawasakiPrinter\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.csproj.GenerateResource.cache
+C:\Users\bsta7599\Documents\programs\KawasakiPrinter\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.exe
+C:\Users\bsta7599\Documents\programs\KawasakiPrinter\3dPrinterClient\3dPrinterClient\RobotArmClient\obj\Debug\RobotArmClient.pdb

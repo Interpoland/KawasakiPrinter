@@ -28,6 +28,7 @@ namespace RobotArmClient
         /// </summary>
         /// 
         bool wait = true;
+        bool tracking = true;
         bool fileLoaded = false;
         int fileLine = 0;
         List<string> names;
@@ -356,13 +357,15 @@ namespace RobotArmClient
                 while (arm.outputs.Count > 0)
                 {
                     listBox2.Items.Add(arm.outputs.Dequeue());
-                    listBox2.SelectedIndex = listBox2.Items.Count - 1;
+                    if(tracking)
+                        listBox2.SelectedIndex = listBox2.Items.Count - 1;
                 }
             if (extruder != null)
                 while (extruder.output.Count > 0)
                 {
                     listBox2.Items.Add(extruder.output.Dequeue());
-                    listBox2.SelectedIndex = listBox2.Items.Count - 1;
+                    if (tracking)
+                        listBox2.SelectedIndex = listBox2.Items.Count - 1;
                 }
             if (arm == null)
                 return;
@@ -523,6 +526,16 @@ namespace RobotArmClient
         private void actualZ_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tracking = false;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            tracking = true;
         }
     }
 }
